@@ -103,7 +103,7 @@ class RedisClient{
 	 */
 	public function setList($key,string $value):int
 	{
-		if(!$this->redis) return false;
+		if(!$this->redis) return 0;
 		return $this->redis->lpush($key, $value);
 	}
 	/**
@@ -115,7 +115,7 @@ class RedisClient{
 	 */
 	public function getList($key,$amount=0,$limit=100):array
 	{
-		if(!$this->redis) return false;
+		if(!$this->redis) return [];
 		return $this->redis->lrange($key, $amount ,$limit);
 	}
 
